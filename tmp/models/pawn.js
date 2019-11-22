@@ -24,15 +24,18 @@ var Pawn = function (_EventManager) {
     function Pawn(life, strength, def) {
         _classCallCheck(this, Pawn);
 
-        if (new.target === Pwan) {
-            throw new TypeError("Cannot construct Abstract instances directly");
-        }
-
         var _this = _possibleConstructorReturn(this, (Pawn.__proto__ || Object.getPrototypeOf(Pawn)).call(this));
+        // if (new.target === Pawn) {
+        //     throw new TypeError("Cannot construct Abstract instances directly");
+        //   }
 
-        _this.getLife(life);
-        _this.getStrength(strength);
-        _this.getDef(def);
+
+        _this.life = life;
+        _this.strength = strength;
+        _this.def = def;
+        // this.getLife(life);
+        // this.getStrength(strength);
+        // this.getDef(def);
         return _this;
     }
 
@@ -57,7 +60,7 @@ var Pawn = function (_EventManager) {
     }, {
         key: "getDef",
         value: function getDef(def) {
-            if (typeof strength == "undefined" || strength == null) {
+            if (typeof def == "undefined" || def == null) {
                 return false;
             } else {
                 return this.def = def;

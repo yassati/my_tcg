@@ -9,6 +9,20 @@ describe("addCard", function() {
 
        expect(hand.addCard(newCard)).toBe(true);
     });
+
+    it("card is not null !", function() {
+      const newCard = null;
+      let hand = new Hand(config);
+
+     expect(hand.addCard(newCard)).toBe(false);
+  });
+
+  it("card is not undefined !", function() {
+    const newCard = undefined;
+    let hand = new Hand(config);
+
+   expect(hand.addCard(newCard)).toBe(false);
+});
     
   });
 
@@ -31,6 +45,21 @@ describe("addCard", function() {
 
       expect(hand.removeCard(3.1)).toBe(false);
   });
+  it("position is not null !", function() {
+    const config3 = { cards : [null,null,null] }
+    let hand = new Hand(config3);
+    expect(hand.removeCard()).toBe(false);
+});
+  it("position is not string !", function() {
+    const config3 = { cards : ["lol","mdr","hihih"] }
+    let hand = new Hand(config3);
+    expect(hand.removeCard()).toBe(false);
+});
+it("position is not undefined !", function() {
+    const config3 = { cards : [undefined,undefined,undefined] }
+    let hand = new Hand(config3);
+    expect(hand.removeCard()).toBe(false);
+});
     
   });
 
@@ -41,7 +70,11 @@ describe("addCard", function() {
 
        expect(hand.getAllCards()).not.toBe(false);
     });
-    
+    it("getAllCards 2 is OK !", function() {
+      let hand = new Hand(config);
+
+     expect(hand.getAllCards()).toEqual(jasmine.arrayContaining([2, 3, 1]));
+  });
   });
 
   describe("getCardsCount",function(){

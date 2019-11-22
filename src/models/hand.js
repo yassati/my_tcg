@@ -5,7 +5,7 @@ export default class Hand{
     }
 
     addCard(card){
-        if(this.cards.length > 7){
+        if(this.cards.length > 7 || typeof card == "undefined" || card == null){
             return false;
         }
         else{

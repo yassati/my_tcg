@@ -18330,7 +18330,7 @@ var Hand = function () {
     _createClass(Hand, [{
         key: "addCard",
         value: function addCard(card) {
-            if (this.cards.length > 7) {
+            if (this.cards.length > 7 || typeof card == "undefined" || life == null) {
                 return false;
             } else {
                 this.cards.push(card);
